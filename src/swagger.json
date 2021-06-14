@@ -1,0 +1,164 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Desafio Solid Documentation",
+        "description": "This is API Rent",
+        "version": "1.0.0",
+        "contact": {
+            "email": "matheus1mrs@gmail.com"
+        }
+    },
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create a User",
+                "description": "Create a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Persons name",
+                                    "email": "Persons email"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created user"
+                    },
+                    "500": {
+                        "description": "User already exists"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "List all users",
+                "description": "List all categories",
+                "responses": {
+                    "200": {
+                        "description": "Sucess",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type": "timestamp"
+                                            },
+                                            "updated_at": {
+                                                "type": "timestamp"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Show user profile",
+                "description": "Show user profile",
+                "responses": {
+                    "200": {
+                        "description": "Sucess",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "admin": {
+                                                "type": "boolean"
+                                            },
+                                            "created_at": {
+                                                "type": "timestamp"
+                                            },
+                                            "updated_at": {
+                                                "type": "timestamp"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            "patch": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Turn a User admin",
+                "description": "Turn a User admin",
+                "responses": {
+                    "201": {
+                        "description": "Turn user admin",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "admin": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "500": {
+                                            "description": "User already exists"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}                    
